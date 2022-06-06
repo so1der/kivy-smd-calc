@@ -7,5 +7,6 @@ So I rewrite my previous(https://github.com/so1der/smd-resistors-calc) version o
 Anyway, you still can download this APK file, or compile it thyself. I am also slightly rewrited code for Buildozer, modified .py file is on the "calc_apk"
  folder.
  
+ 
 ![alt tag](https://raw.githubusercontent.com/so1der/kivy-smd-calc/main/screenshots.png "ScreenShots of the programm")​
 
