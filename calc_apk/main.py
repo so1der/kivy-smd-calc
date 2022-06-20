@@ -1,9 +1,10 @@
+import re
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.properties import StringProperty
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
-import re
+
 
 index = {"01": 100, "02": 102, "03": 105, "04": 107, "05": 110, "06": 113,
          "07": 115, "08": 118, "09": 121, "10": 124, "11": 127, "12": 130,
@@ -26,6 +27,12 @@ index = {"01": 100, "02": 102, "03": 105, "04": 107, "05": 110, "06": 113,
 multipler = {"Z": 0.001, "Y": 0.01, "R": 0.01, "X": 0.1, "S": 0.1, "A": 1,
              "B": 10, "H": 10, "C": 100, "С": 100, "D": 1000, "E": 10000,
              "F": 100000}
+
+patterns = ('^\d{4}$', '^\d{3}$', '^[R]+\d{1,3}$',
+            '^\d{,2}[R]\d{1,3}$', '^\d{2}[A-F H R-S X-Z]$', '^[0]$')
+
+types = ('4digits', '3digits', 'R+digits',
+         'digitsRdigits', 'EIA-96', 'zero')
 
 Window.clearcolor = (.1, .1, .1, .24)
 
@@ -260,12 +267,6 @@ class CalcGridLayout(GridLayout):
         self.summary = f"Resistance: {resistance_value}"
 
     def resistorCodeTypeCheker(self, r_code):
-        patterns = ['^\d{4}$', '^\d{3}$', '^[R]+\d{1,3}$',
-                    '^\d{,2}[R]\d{1,3}$', '^\d{2}[A-F H R-S X-Z]$', '^[0]$']
-
-        types = ['4digits', '3digits', 'R+digits',
-                 'digitsRdigits', 'EIA-96', 'zero']
-
         for index, pattern in enumerate(patterns):
             if re.match(pattern, r_code):
                 return types[index]
