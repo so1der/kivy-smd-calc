@@ -309,7 +309,6 @@ class CalcGridLayout(GridLayout):
 
 
 class ResistorCalcApp(App):
-
     def build(self):
         return CalcGridLayout()
 
