@@ -5,7 +5,7 @@ from kivy.uix.widget import Widget
 from kivy.core.window import Window
 import re
 
-#importing EIA-96 codes from EIA96.py:
+# importing EIA-96 codes from EIA96.py:
 from EIA96 import index, multipler
 
 
@@ -13,7 +13,8 @@ Window.clearcolor = (.1, .1, .1, .24)
 
 
 class CalcGridLayout(GridLayout):
-    upper_text_list = ['[color=FFFFFF]Enter Resistor Code:[/color]', '[color=C52626]Wrong Resistor Code![/color]']
+    upper_text_list = ['[color=FFFFFF]Enter Resistor Code:[/color]',
+                       '[color=C52626]Wrong Resistor Code![/color]']
     upper_text = StringProperty(upper_text_list[0])
     label_entry_text = StringProperty('')
     summary = StringProperty('')
@@ -51,8 +52,11 @@ class CalcGridLayout(GridLayout):
         self.summary = f"Resistance: {resistance_value}"
 
     def resistorCodeTypeCheker(self, r_code):
-        patterns = ['^\d{4}$', '^\d{3}$', '^[R]+\d{1,3}$', '^\d{,2}[R]\d{1,3}$', '^\d{2}[A-F H R-S X-Z]$', '^[0]$']
-        types = ['4digits', '3digits', 'R+digits', 'digitsRdigits', 'EIA-96', 'zero']
+        patterns = ['^\d{4}$', '^\d{3}$', '^[R]+\d{1,3}$',
+                    '^\d{,2}[R]\d{1,3}$', '^\d{2}[A-F H R-S X-Z]$', '^[0]$']
+
+        types = ['4digits', '3digits', 'R+digits',
+                 'digitsRdigits', 'EIA-96', 'zero']
 
         for index, pattern in enumerate(patterns):
             if re.match(pattern, r_code):
