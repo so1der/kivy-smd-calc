@@ -8,5 +8,5 @@ Anyway, you still can download this APK file, or compile it thyself. I am also s
  folder.
  
  
-![alt tag](https://raw.githubusercontent.com/so1der/kivy-smd-calc/main/screenshots.png "ScreenShots of the programm")​
+![alt tag](https://raw.githubusercontent.com/so1der/kivy-smd-calc/main/images/screenshots.png "ScreenShots of the programm")​
 
